@@ -1,7 +1,7 @@
 import csv
-def reader(ugenr):
+def reader(ugenr,year):
     ugenr = ugenr -1
-    with open("Teknik 2023 Amager Strand Menighed.csv", "r") as datafil:
+    with open(f"CSV_AND_EXCEL/TEKNIK{year}csv.csv", "r") as datafil:
         csv_laeser = csv.reader(datafil, delimiter=",")
         next(csv_laeser)
         next(csv_laeser)
