@@ -7,7 +7,7 @@ Meld_ud = []
 Hello.append("Hey")
 Hello.append("Halløj")
 Hello.append("Hejsa")
-Hello.append("Hola")
+Hello.append("Hej")
 
 Navn.append("gutter")
 Navn.append("drenge")

@@ -4,7 +4,6 @@ def reader(ugenr,year):
     with open(f"CSV_AND_EXCEL/TEKNIK{year}csv.csv", "r") as datafil:
         csv_laeser = csv.reader(datafil, delimiter=",")
         next(csv_laeser)
-        next(csv_laeser)
         uge = []
         PC = []
         Mikser = []

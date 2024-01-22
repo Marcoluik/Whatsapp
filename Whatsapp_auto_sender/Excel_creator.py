@@ -1,19 +1,20 @@
 import pandas as pd
 
+weeks = list(range(1, 53))     #Weeks list
+df = pd.DataFrame({"Uge nr": weeks})   #Dataframe
 
-weeks = list(range(1, 53))
-df = pd.DataFrame({"Uge nr": weeks})
-
-
+#Roles
 hosts = ["Nick", "Jens", "Emil", "Marc"]
-pcs = ["Martin", "Henrik", "Louis", "Marco", "Marcus", "Patrick", "Silas", "Benjamin"]
+pcs = ["Henrik", "Marco", "Patrick", "Ledig", "Martin", "Louis", "Marcus", "Silas"]
+mikser = ["Martin", "Louis", "Marcus", "Silas", "Henrik", "Marco,", "Patrick", "Ledig"]
 podium = ["August", "Viggo"]
 
 
 df["PC"] = [pcs[i % len(pcs)] for i in range(len(weeks))]
-df["Mikser"] = [name for i in range(len(weeks)) for name in pcs if name != df.loc[i, "PC"]][0:len(weeks)] #Sørger for at Pc og Mikser ikke kan være samme person
+df["Mikser"] = [mikser[i % len(mikser)] for i in range(len(weeks))]
 df["Host"] = [hosts[i % len(hosts)] for i in range(len(weeks))]
 df["Podiet"] = [podium[i % len(podium)] for i in range(len(weeks))]
+
 
 print(df.head()) #Første 5
 
