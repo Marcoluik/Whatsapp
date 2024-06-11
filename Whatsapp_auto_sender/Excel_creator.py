@@ -4,16 +4,21 @@ weeks = list(range(1, 53))     #Weeks list
 df = pd.DataFrame({"Uge nr": weeks})   #Dataframe
 
 #Roles
-hosts = ["Nick", "Jens", "Emil", "Marc"]
-pcs = ["Henrik", "Marco", "Patrick", "Ledig", "Martin", "Louis", "Marcus", "Silas"]
-mikser = ["Martin", "Louis", "Marcus", "Silas", "Henrik", "Marco,", "Patrick", "Ledig"]
-podium = ["August", "Viggo"]
+hosts = ["Jens", "Emil", "Marc"]
+pcs = ["Henrik", "Viggo", "Patrick", "Benjamin", "Martin", "Marco", "Louis", "Silas", "Viggo"]
+mikser = ["Martin", "Louis", "Silas", "Henrik", "Marco", "Viggo", "Patrick", "Benjamin", ]
+podium = ["August", "Vilfred", "Villads"]
 
 
 df["PC"] = [pcs[i % len(pcs)] for i in range(len(weeks))]
 df["Mikser"] = [mikser[i % len(mikser)] for i in range(len(weeks))]
 df["Host"] = [hosts[i % len(hosts)] for i in range(len(weeks))]
 df["Podiet"] = [podium[i % len(podium)] for i in range(len(weeks))]
+
+
+stævne = {"PC": "Stævne", "Mikser": "Stævne", "Host": "Stævne", "Podiet": "Stævne"}
+df.loc[df['Uge nr'] == 13, stævne.keys()] = stævne.values()
+df.loc[df['Uge nr'] == 28, stævne.keys()] = stævne.values()
 
 
 print(df.head()) #Første 5
